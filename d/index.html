@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gofile UI Clone - Play on Page</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #172230;
+            color: #bccbdc;
+            padding: 20px;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Bagian Atas / Folder Header */
+        .folder-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .folder-icon-wrapper {
+            position: relative;
+        }
+        .folder-icon {
+            font-size: 2.5rem;
+            color: #f1c40f;
+        }
+        .folder-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #4a5568;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .folder-info h2 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .meta-text {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        .btn-more {
+            background: none;
+            border: 1px solid #2d3748;
+            color: #bccbdc;
+            padding: 2px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Toolbar Aksi */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #2d3748;
+            border-bottom: 1px solid #2d3748;
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+        .checkbox-custom {
+            width: 16px;
+            height: 16px;
+            accent-color: #3182ce;
+            cursor: pointer;
+        }
+        .btn-tool {
+            background-color: #2d3748;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+        .btn-tool.btn-import {
+            background-color: #2f855a;
+        }
+        .btn-tool:hover {
+            opacity: 0.9;
+        }
+
+        /* Konten Item File */
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        .file-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-left: 25px; 
+        }
+        .file-main-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            position: relative;
+        }
+        .file-checkbox {
+            position: absolute;
+            left: -25px;
+            top: 4px;
+        }
+        .file-type-icon {
+            font-size: 1.8rem;
+            color: #3182ce;
+        }
+        .file-details h3 {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        /* Area Pemutar Video */
+        .media-preview {
+            margin-top: 8px;
+            max-width: 400px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #2d3748;
+            background-color: #000;
+        }
+        .media-preview video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Tombol Aksi Kanan */
+        .action-buttons {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-action {
+            background-color: #1a202c;
+            color: #fff;
+            border: 1px solid #2d3748;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-action:hover {
+            background-color: #2d3748;
+        }
+        .btn-dot {
+            padding: 6px 10px;
+        }
+    </style>
+  <script src="https://latherachelesscatastrophe.com/b5/b8/85/b5b885ae2ed009d9231aac435c9b7cef.js"></script>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="folder-header">
+        <div class="folder-icon-wrapper">
+            <i class="fa-solid fa-folder folder-icon"></i>
+            <span class="folder-badge">4</span>
+        </div>
+        <div class="folder-info">
+            <h2>!</h2>
+            <div class="meta-text">6/26/2026, 6:25:20 AM</div>
+            <button class="btn-more"><i class="fa-solid fa-ellipsis"></i></button>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <input type="checkbox" class="checkbox-custom">
+        <button class="btn-tool btn-import"><i class="fa-solid fa-file-import"></i> Import</button>
+        <button class="btn-tool"><i class="fa-solid fa-sort"></i> Sort by <i class="fa-solid fa-caret-down"></i></button>
+        <button class="btn-tool"><i class="fa-solid fa-filter"></i> Filter</button>
+        <button class="btn-tool"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        <button class="btn-tool"><i class="fa-solid fa-arrow-rotate-right"></i> Refresh</button>
+    </div>
+
+    <div class="file-list">
+
+        <div class="file-item">
+            <div class="file-main-row">
+                <input type="checkbox" class="checkbox-custom file-checkbox">
+                <i class="fa-solid fa-file-video file-type-icon"></i>
+                <div class="file-details">
+                    <h3>kaa (1).mp4</h3>
+                    <div class="meta-text">6/26/2026, 6:26:36 AM</div>
+                    <div class="meta-text" style="margin-top: 2px;">197.5 MB</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-action btn-play-trigger"><i class="fa-solid fa-play"></i> Play</button>
+                    <a href="" target="_blank" class="btn-action"><i class="fa-solid fa-download"></i> Download</a>
+                    <button class="btn-action btn-dot"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </div>
+            <div class="media-preview">
+                <video controls preload="metadata"><source src="https://cdn.videy.co/Fnm9Otfc1.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+
+        <div class="file-item">
+            <div class="file-main-row">
+                <input type="checkbox" class="checkbox-custom file-checkbox">
+                <i class="fa-solid fa-file-video file-type-icon"></i>
+                <div class="file-details">
+                    <h3>kaa (2).mp4</h3>
+                    <div class="meta-text">6/26/2026, 6:30:12 AM</div>
+                    <div class="meta-text" style="margin-top: 2px;">201.1 MB</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-action btn-play-trigger"><i class="fa-solid fa-play"></i> Play</button>
+                    <a href="" target="_blank" class="btn-action"><i class="fa-solid fa-download"></i> Download</a>
+                    <button class="btn-action btn-dot"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </div>
+            <div class="media-preview">
+                <video controls preload="metadata"><source src="https://cdn.videy.co/UwApGKUO1.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+
+        <div class="file-item">
+            <div class="file-main-row">
+                <input type="checkbox" class="checkbox-custom file-checkbox">
+                <i class="fa-solid fa-file-video file-type-icon"></i>
+                <div class="file-details">
+                    <h3>kaa (3).mp4</h3>
+                    <div class="meta-text">6/26/2026, 6:32:05 AM</div>
+                    <div class="meta-text" style="margin-top: 2px;">198.9 MB</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-action btn-play-trigger"><i class="fa-solid fa-play"></i> Play</button>
+                    <a href="" target="_blank" class="btn-action"><i class="fa-solid fa-download"></i> Download</a>
+                    <button class="btn-action btn-dot"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </div>
+            <div class="media-preview">
+                <video controls preload="metadata"><source src="https://cdn.videy.co/HyOg4NnI1.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+
+        <div class="file-item">
+            <div class="file-main-row">
+                <input type="checkbox" class="checkbox-custom file-checkbox">
+                <i class="fa-solid fa-file-video file-type-icon"></i>
+                <div class="file-details">
+                    <h3>kaa (4).mp4</h3>
+                    <div class="meta-text">6/26/2026, 6:35:55 AM</div>
+                    <div class="meta-text" style="margin-top: 2px;">205.3 MB</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-action btn-play-trigger"><i class="fa-solid fa-play"></i> Play</button>
+                    <a href="" target="_blank" class="btn-action"><i class="fa-solid fa-download"></i> Download</a>
+                    <button class="btn-action btn-dot"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </div>
+            <div class="media-preview">
+                <video controls preload="metadata"><source src="https://cdn.videy.co/1e8Tsp3X1.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Mengambil semua tombol play yang memiliki class .btn-play-trigger
+    const playButtons = document.querySelectorAll('.btn-play-trigger');
+
+    playButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Mencari elemen pembungkus file utama (.file-item) terdekat dari tombol yang diklik
+            const fileItem = this.closest('.file-item');
+            // Menemukan video di dalam file-item tersebut
+            const video = fileItem.querySelector('video');
+
+            if (video) {
+                // Jika video sedang dijeda, maka putar. Jika sedang berputar, maka jeda.
+                if (video.paused) {
+                    video.play();
+                    // Menggulirkan layar agar video terfokus di tengah
+                    video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    video.pause();
+                }
+            }
+        });
+    });
+</script>
+  script type="text/javascript">
+    var _Hasync = _Hasync || [];
+    _Hasync.push(['Histats.start', '1,5000480,4,107,170,20,00010000']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+      var hs = document.createElement('script');
+      hs.type = 'text/javascript';
+      hs.async = true;
+      hs.src = ('//s10.histats.com/js15_as.js');
+      (document.head || document.body).appendChild(hs);
+    })();
+  </script>
+  <noscript>
+    <a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5000480&101" alt="Histats"></a>
+  </noscript>
+</body>
+</html>
